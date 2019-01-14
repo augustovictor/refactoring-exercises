@@ -14,9 +14,9 @@ class Calculator {
     private fun getVendorComission(monthDate: MonthDate): Double {
         val result : Double
 
-        if (monthDate.month == 1 || monthDate.day == 1) {
+        if (isFirstMonthOrFirstDay(monthDate)) {
             result = 0.05
-        } else if (monthDate.month == 2) {
+        } else if (isSecondMonth(monthDate)) {
             result = 0.02
         } else {
             result = 0.01
@@ -24,17 +24,22 @@ class Calculator {
 
         return result
     }
+
+    private fun isSecondMonth(monthDate: MonthDate) = monthDate.month == 2
+    private fun isFirstMonthOrFirstDay(monthDate: MonthDate): Boolean = monthDate.month == 1 || monthDate.day == 1
     private fun getAdditionalDiscount(currentDay: Int): Double {
         var result = 0.0
 
-        if (currentDay in 25..29) {
+        if (isInLastDaysOfMonth(currentDay)) {
             result = 0.10
-        } else if (currentDay == 30) {
+        } else if (isLastDayOfMonth(currentDay)) {
             result = 0.20
         }
 
         return result
     }
+    private fun isLastDayOfMonth(currentDay: Int) = currentDay == 30
+    private fun isInLastDaysOfMonth(currentDay: Int) = currentDay in 25..29
     private fun getTotalDiscount(discount: Double, currentDay: Int): Double {
         return discount + getAdditionalDiscount(currentDay)
     }
