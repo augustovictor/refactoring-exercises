@@ -1,9 +1,10 @@
-package refactoringexercises.smells.bloaters.longMethod.before
+package refactoringexercises.smells.bloaters.longMethod
 
 import org.junit.Assert.assertEquals
 import org.junit.Test
+import refactoringexercises.smells.bloaters.longMethod.Calculator
 
-class LongMethod {
+class CalculatorTest {
 
     private val calculator = Calculator()
 
