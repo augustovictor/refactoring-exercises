@@ -12,7 +12,17 @@ class Calculator {
     }
 
     private fun getVendorComission2(monthDate: MonthDate): Double {
-        return getVendorComission(monthDate.month, monthDate.day)
+        val result : Double
+
+        if (monthDate.month == 1 || monthDate.day == 1) {
+            result = 0.05
+        } else if (monthDate.month == 2) {
+            result = 0.02
+        } else {
+            result = 0.01
+        }
+
+        return result
     }
 
     private fun getVendorComission(currentMonth: Int, currentDay: Int): Double {
