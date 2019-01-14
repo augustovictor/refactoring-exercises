@@ -7,8 +7,12 @@ class Calculator {
         return getTotalValue(
                 initialValue,
                 getTotalDiscount(discount, monthDate.day),
-                getVendorComission(monthDate.month, monthDate.day)
+                getVendorComission2(monthDate)
         )
+    }
+
+    private fun getVendorComission2(monthDate: MonthDate): Double {
+        return getVendorComission(monthDate.month, monthDate.day)
     }
 
     private fun getVendorComission(currentMonth: Int, currentDay: Int): Double {
