@@ -10,5 +10,5 @@
     - To reduce parameters use `Introduce parameter object`[DIFF](https://github.com/augustovictor/refactoring-exercises/commit/c1d1f5d7fa935e8616bcb7ad4feb3ef6f65f3e90) or `Preserve whole object`[DIFF](https://github.com/augustovictor/refactoring-exercises/commit/0694104807438d26c2302c97866018d91260db32);
 - If the previous steps did not work as expected use `Replace method with method object`[DIFF](https://github.com/augustovictor/refactoring-exercises/commit/21a95df2485f08ae26684e741448efb33f750627);
 - Conditionals and loops;
-    - Simplify conditionals with `Decompose conditionals`;
+    - Simplify conditionals with `Decompose conditionals` [DIFF](https://github.com/augustovictor/refactoring-exercises/commit/fcead35c120bdcfc113fc6aea2b1e93bb70ace50);
     - Simplify loops with `Extract method`;
