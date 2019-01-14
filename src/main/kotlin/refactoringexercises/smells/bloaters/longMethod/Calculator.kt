@@ -1,11 +1,13 @@
 package refactoringexercises.smells.bloaters.longMethod
 
+class MonthDate(val month: Int, val day: Int)
+
 class Calculator {
-    fun calculateTotalAmount(initialValue: Double, discount: Double = 0.0, currentMonth: Int, currentDay: Int): Double {
+    fun calculateTotalAmount(initialValue: Double, discount: Double = 0.0, monthDate: MonthDate): Double {
         return getTotalValue(
                 initialValue,
-                getTotalDiscount(discount, currentDay),
-                getVendorComission(currentMonth, currentDay)
+                getTotalDiscount(discount, monthDate.day),
+                getVendorComission(monthDate.month, monthDate.day)
         )
     }
 
