@@ -24,20 +24,6 @@ class Calculator {
 
         return result
     }
-
-    private fun getVendorComission(currentMonth: Int, currentDay: Int): Double {
-        val result : Double
-
-        if (currentMonth == 1 || currentDay == 1) {
-            result = 0.05
-        } else if (currentMonth == 2) {
-            result = 0.02
-        } else {
-            result = 0.01
-        }
-
-        return result
-    }
     private fun getAdditionalDiscount(currentDay: Int): Double {
         var result = 0.0
 
