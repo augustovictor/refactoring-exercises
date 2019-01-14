@@ -7,11 +7,11 @@ class Calculator {
         return getTotalValue(
                 initialValue,
                 getTotalDiscount(discount, monthDate.day),
-                getVendorComission2(monthDate)
+                getVendorComission(monthDate)
         )
     }
 
-    private fun getVendorComission2(monthDate: MonthDate): Double {
+    private fun getVendorComission(monthDate: MonthDate): Double {
         val result : Double
 
         if (monthDate.month == 1 || monthDate.day == 1) {
