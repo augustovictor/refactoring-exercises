@@ -2,7 +2,7 @@ package refactoringexercises.smells.bloaters.longMethod
 
 class Calculator {
     fun calculateTotalAmount(initialValue: Double, discount: Double = 0.0, currentMonth: Int, currentDay: Int): Double {
-        var totalValue: Double
+        val totalValue: Double
         var additionalDiscount = 0.0
         var totalDiscount = 0.0
         val vendorComission : Double
