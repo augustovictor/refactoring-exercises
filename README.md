@@ -2,7 +2,7 @@
 
 ## Long method
 
-- `Extract method`;
+- `Extract method` [DIFF](https://github.com/augustovictor/refactoring-exercises/commit/bc6b1cf6fc4c4cf907486a8f0f667caba62990b0?diff=split);
     - Name the value to be returned as `result`;
 - Reduce local variables and parameters:
     - To reduce local variables use `Replace temp with query`;

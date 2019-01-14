@@ -2,14 +2,11 @@ package refactoringexercises.smells.bloaters.longMethod
 
 class Calculator {
     fun calculateTotalAmount(initialValue: Double, discount: Double = 0.0, currentMonth: Int, currentDay: Int): Double {
-        val totalValue: Double
-        val additionalDiscount = getAdditionalDiscount(currentDay)
-        val totalDiscount = getTotalDiscount(discount, additionalDiscount)
-        val vendorComission = getVendorComission(currentMonth, currentDay)
-
-        totalValue = getTotalValue(initialValue, totalDiscount, vendorComission)
-
-        return totalValue
+        return getTotalValue(
+                initialValue,
+                getTotalDiscount(discount, currentDay),
+                getVendorComission(currentMonth, currentDay)
+        )
     }
 
     private fun getVendorComission(currentMonth: Int, currentDay: Int): Double {
@@ -25,7 +22,6 @@ class Calculator {
 
         return result
     }
-
     private fun getAdditionalDiscount(currentDay: Int): Double {
         var result = 0.0
 
@@ -37,11 +33,9 @@ class Calculator {
 
         return result
     }
-
-    private fun getTotalDiscount(discount: Double, additionalDiscount: Double): Double {
-        return discount + additionalDiscount
+    private fun getTotalDiscount(discount: Double, currentDay: Int): Double {
+        return discount + getAdditionalDiscount(currentDay)
     }
-
     private fun getTotalValue(initialValue: Double, totalDiscount: Double, vendorComission: Double): Double {
         return initialValue - (totalDiscount * initialValue) + (vendorComission * initialValue)
     }
