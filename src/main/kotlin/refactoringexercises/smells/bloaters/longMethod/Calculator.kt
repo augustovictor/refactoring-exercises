@@ -3,24 +3,46 @@ package refactoringexercises.smells.bloaters.longMethod
 class Calculator {
     fun calculateTotalAmount(initialValue: Double, discount: Double = 0.0, currentMonth: Int, currentDay: Int): Double {
         val totalValue: Double
-        var additionalDiscount = 0.0
-        var totalDiscount = 0.0
-        val vendorComission : Double
+        val additionalDiscount = getAdditionalDiscount(currentDay)
+        val totalDiscount = getTotalDiscount(discount, additionalDiscount)
+        val vendorComission = getVendorComission(currentMonth, currentDay)
+
+        totalValue = getTotalValue(initialValue, totalDiscount, vendorComission)
+
+        return totalValue
+    }
+
+    private fun getVendorComission(currentMonth: Int, currentDay: Int): Double {
+        val result : Double
+
         if (currentMonth == 1 || currentDay == 1) {
-            vendorComission = 0.05
+            result = 0.05
         } else if (currentMonth == 2) {
-            vendorComission = 0.02
+            result = 0.02
         } else {
-            vendorComission = 0.01
-        }
-        if (currentDay in 25..29) {
-            additionalDiscount = 0.10
-        } else if (currentDay == 30) {
-            additionalDiscount = 0.20
+            result = 0.01
         }
 
-        totalDiscount += discount + additionalDiscount
-        totalValue = initialValue - (totalDiscount * initialValue) + (vendorComission * initialValue)
-        return totalValue
+        return result
+    }
+
+    private fun getAdditionalDiscount(currentDay: Int): Double {
+        var result = 0.0
+
+        if (currentDay in 25..29) {
+            result = 0.10
+        } else if (currentDay == 30) {
+            result = 0.20
+        }
+
+        return result
+    }
+
+    private fun getTotalDiscount(discount: Double, additionalDiscount: Double): Double {
+        return discount + additionalDiscount
+    }
+
+    private fun getTotalValue(initialValue: Double, totalDiscount: Double, vendorComission: Double): Double {
+        return initialValue - (totalDiscount * initialValue) + (vendorComission * initialValue)
     }
 }

@@ -3,6 +3,7 @@
 ## Long method
 
 - `Extract method`;
+    - Name the value to be returned as `result`;
 - Reduce local variables and parameters:
     - To reduce local variables use `Replace temp with query`;
     - To reduce parameters use `Introduce parameter object` or `Preserve whole object`;
