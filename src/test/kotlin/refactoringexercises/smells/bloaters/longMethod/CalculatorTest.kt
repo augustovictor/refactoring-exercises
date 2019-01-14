@@ -5,7 +5,6 @@ import org.junit.Test
 import refactoringexercises.smells.bloaters.longMethod.Calculator
 
 class CalculatorTest {
-
     private val calculator = Calculator()
 
     @Test
